@@ -1,0 +1,260 @@
+﻿<html>
+<head> <B><Font color = darkblue><CENTER> श्रीलिपि715 ==> यूनिकोड फ़ोण्ट परिवर्तित्र (05-05-2010 ) </font></B></title><br>
+
+<script type="text/javascript">
+
+function convert_to_unicode()
+{
+
+var array_one = new Array( 'T' , '\>' , 'µµµ' ,
+//       	às  	«HR    •à
+//          क्य     	हूँ 	     ण्य 
+
+'Ü' , 'Àb¼' , 'ÀbC' , 'yC' , 'y' , 'ð' , '¦' , 'Ê¶' , 'Ê' , 'Àb' , 'À' , 
+	  	  	  	  	  	  	  	 
+'è' , 'Ð' , '¶' ,
+
+'*' , '}' , 'w' , 'M' , 'H' , 'b¼' , 'bC' , 'É' , '¼' , 'C' , '¯' , 'R' , 'é' , 'N' , 'a' , 'ò' , 'b' , '#' , '$' ,
+
+
+'ï' , '\[' , '_' , '§' ,
+
+'Ì' , '´' , '¤' , '«' , 'h' , 'P' , 'á' , '÷' , 'g' , 'A' , '~' ,
+
+'Ñ' , 'ë' , 'e' , 'U' , 'õ' , 'õ' , 'Ù' , 'à' ,
+
+'î' , '|' , 'B' , 'm' , 'k' , 'V' , '±' , 'í' ,
+
+'E' , 'D' , 'Ç' , 'µ' , 'V' , 'Ó' , 'X' , 'ô' , 'Ë' , '¾' , '£' , '»' , 'ñ' , 'Ï' , 'c' , 'È' ,
+
+'L' , 'Ý' , 'ú' , 'Ý' , 'ù' , 'r' , 'Ô' , 'q' , '^' ,
+
+'½' , '¢' , '®' , 'n' , 'Ø' , 'ª' ,
+
+'ì' , 'ß' , '³Ð' , 'Â' , '³' , 'v' , 'Ú' , 'ã' , '¥',
+
+'\™' , '\˜' , '\—' , '\–' , '•' , '\”' , '\“' , '\’' , '\‘',
+
+' ा', ' ी', ' ु', ' ू', ' ृ', ' े', ' ै', ' ो', ' ं', ' ँ', ' ः',
+
+'ँा',  'ँू', 'ंे', 'ंै', 'ंो', 'ंो', 'अा'    )   
+
+var array_two = new Array( '' , '' , '' ,
+
+'ऋ' , 'औ' , 'ओ' , 'ऐ' , 'ए' , 'ऊ' , 'उ' , 'ई' , 'इ' , 'आ' , 'अ' ,
+
+'्' , '्र', 'र्' ,
+
+'ं' , 'ं' , 'ं' , 'ँ' , 'ँ' , 'ौ' , 'ो' , 'ृ' , 'ै' , 'े' , 'ू' , 'ू' , 'ु' , 'ु' , 'ी' , 'ी' , 'ा' , 'ः' , '।' ,
+
+'क्ष्' , 'क्ष' , 'त्र' , 'ज्ञ' ,
+
+'ह्म' , 'हृ' , 'ह्' , 'ह' , 'स्' , 'स' , 'ष' , 'ष्' , 'श्र' , 'श्' , 'श' ,
+
+'व्' , 'व' , 'ल्' , 'ल' , 'रू' , 'रु' , 'र' , 'य ' ,
+
+'म' , 'म्' , 'भ' , 'ब' , 'ब' , 'फ' , 'प' , 'प्' ,
+
+'न्' , 'न' , 'ध्' , 'ध' , 'ध' , 'द्द' , 'द्ध' , 'द्व' , 'द्य' , 'द्र' , 'द' , 'थ्' , 'थ' , 'त्' , 'त्त' , 'त' ,
+
+'ण' , 'ढ़' , 'ढ़' , 'ढ' , 'ड़' , 'डड्' , 'ड' , 'ठ' , 'ट' , 
+
+'झ' , 'ज्' , 'ज' , 'छ' , 'च्' , 'च ' ,
+
+'घ्' , 'घ' , 'ग्र' , 'ग्' , 'ग' , 'ख्' , 'ख' , 'क्' , 'क' ,
+
+'9', '8', '7', '6', '5', '4', '3', '2', '1',
+
+'ा', 'ी', 'ु', 'ू', 'ृ', 'े', 'ै', 'ो', 'ं', 'ँ', 'ः',
+
+'ाँ',  'ूँ', 'ंे', 'ैं', 'ों', 'ों' , 'आ'    )     
+
+
+//**********************************************
+
+    var array_one_length = array_one.length ;
+
+    var modified_substring = document.getElementById("legacy_text").value  ;	
+	
+document.getElementById("unicode_text").value = "Conversion in progress.."  ;  
+
+//****************************************************
+//  Break the long text into small bunches of chunk_size  characters each.
+//****************************************************
+    var text_size = modified_substring.length ;
+
+    var processed_text = '' ;  //blank
+
+    var sthiti1 = 0 ;  var sthiti2 = 0 ;  var chale_chalo = 1 ;
+ 
+    var chunk_size = 6000; // this charecter long text will be processed in one go.
+
+    while ( chale_chalo == 1 ) 
+    {
+     sthiti1 = sthiti2 ;
+
+     if ( sthiti2 < ( text_size - chunk_size ) )  
+     { 
+      sthiti2 +=  chunk_size ;
+//      while (document.getElementById("legacy_text").value.charAt ( sthiti2 ) != ' ') {sthiti2--;} 
+//This was making problem if there is no 'space' in the whole document.
+     } 
+     else  { sthiti2 = text_size  ;  chale_chalo = 0 }
+
+  var modified_substring = document.getElementById("legacy_text").value.substring ( sthiti1, sthiti2 )  ;
+
+  Replace_Symbols( ) ;
+
+  var processed_text = processed_text + modified_substring ;
+	  
+document.getElementById("unicode_text").value = "Conversion in progress.." + '\n\n' + 'Conversion of ' + sthiti2 + ' charecters out of ' + text_size + ' completed.' ; 
+
+    }
+  
+document.getElementById("unicode_text").value = processed_text  ;  
+
+// --------------------------------------------------
+
+
+function Replace_Symbols( )
+
+{
+
+//substitute array_two elements in place of corresponding array_one elements
+
+if ( modified_substring != "" )  // if stringto be converted is non-blank then no need of any processing.
+{
+for ( input_symbol_idx = 0;   input_symbol_idx < array_one_length;    input_symbol_idx++ )
+
+{ 
+//******************************************************
+idx = 0  ;  // index of the symbol being searched for replacement
+
+while (idx != -1 ) //while-00
+{
+
+modified_substring = modified_substring.replace( array_one[ input_symbol_idx ] , array_two[input_symbol_idx] )
+idx = modified_substring.indexOf( array_one[input_symbol_idx] )
+
+} // end of while-00 loop
+// alert(" end of while loop")
+} // end of for loop
+// alert(" end of for loop")
+
+// alert(" modified substring2 = "+modified_substring)
+//*******************************************************
+
+modified_substring = modified_substring.replace( /s/g , '\<' );
+modified_substring = modified_substring.replace( /G/g , '\<' );
+
+var position_of_i = modified_substring.indexOf( "\<" )
+
+while ( position_of_i != -1 )  //while-02
+{
+var charecter_next_to_i = modified_substring.charAt( position_of_i + 1 )
+var charecter_to_be_replaced = "\<" + charecter_next_to_i
+modified_substring = modified_substring.replace( charecter_to_be_replaced , charecter_next_to_i + "ि" ) 
+position_of_i = modified_substring.search( /\</ , position_of_i + 1 ) // search for i ahead of the current position.
+
+} // end of while-02 loop
+
+//***************************************************
+// End of Code for Replacing four Special glyphs
+//***************************************************
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "ि्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 2 )
+var charecter_to_be_replaced = "ि्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "ि" ) 
+position_of_wrong_ee = modified_substring.search( /ि्/ , position_of_wrong_ee + 2 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "िं्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 3 )
+var charecter_to_be_replaced = "िं्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "िं" ) 
+position_of_wrong_ee = modified_substring.search( /िं्/ , position_of_wrong_ee + 3 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+
+// Eliminating reph "Ô" and putting 'half - r' at proper position for this.
+set_of_matras = "ा ि ी ु ू ृ े ै ो ौ ं : ँ ॅ" 
+var position_of_R = modified_substring.indexOf( "©" )
+
+while ( position_of_R > 0 )  // while-04
+{
+probable_position_of_half_r = position_of_R - 1 ;
+var charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r )
+
+
+// trying to find non-maatra position left to current O (ie, half -r).
+
+while ( set_of_matras.match( charecter_at_probable_position_of_half_r ) != null )  // while-05
+
+{
+probable_position_of_half_r = probable_position_of_half_r - 1 ;
+charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r ) ;
+
+} // end of while-05
+
+
+charecter_to_be_replaced = modified_substring.substr ( probable_position_of_half_r , ( position_of_R - probable_position_of_half_r ) ) ;
+new_replacement_string = "र्" + charecter_to_be_replaced ; 
+charecter_to_be_replaced = charecter_to_be_replaced + "©" ;
+modified_substring = modified_substring.replace( charecter_to_be_replaced , new_replacement_string ) ;
+position_of_R = modified_substring.indexOf( "©" ) ;
+
+} // end of while-04
+
+
+
+} // end of IF  statement  meant to  supress processing of  blank  string.
+
+} // end of the function  Replace_Symbols
+
+} // end of convert_to_unicode function
+
+
+
+
+</script>
+</head>
+
+<!-- ----------------------------------------------------------------------------------
+      body of the HTML starts here. one text box is provided each for input and output. 
+-->
+
+
+<body>
+<form name="form1">
+<b>ShreeLipi715 font text-box </b><br/>
+<HTML><BODY bgColor='yellow'><CENTER>
+
+<textarea name="TextToConvert" id="legacy_text" cols="92" rows="6"></textarea> <br>
+
+<div align="middle">
+<CENTER><input  type="button" name="converter" id="converter" value=" Convert to Unicode >> " onClick="convert_to_unicode();" accesskey="c" title="शॉर्टकट alt+c"> 
+</div>  <br>
+
+<b><CENTER>Unicode text-box</b> <br/>
+<textarea name="ConvertedText" id="unicode_text" cols="92" rows="6"></textarea>
+<br />
+
+</form>
+</body>
+
+</html>
